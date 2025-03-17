@@ -5,15 +5,13 @@ const { error } = require('console');
 module.exports.getOsInformation = (req,res)=>{
     try{
         const osInformation ={
-            hostnam: os.hostname(),
+            hostname: os.hostname(),
             type: os.type(),
             platform:os.platform(),
         }
         if(osInformation){
-            throw new error("no information");
+            throw new Error("no information");
         }
-
-
         res.status(200).json(osInformation);
 
     }catch(error){
@@ -23,4 +21,5 @@ module.exports.getOsInformation = (req,res)=>{
 
 
 
-}
+} 
+

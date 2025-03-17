@@ -9,17 +9,10 @@ module.exports.getOsInformation = (req,res)=>{
             type: os.type(),
             platform:os.platform(),
         }
-        if(osInformation){
-            throw new Error("no information");
-        }
         res.status(200).json(osInformation);
 
     }catch(error){
         res.status(500).json({message:error.message});
     }
-
-
-
-
 } 
 

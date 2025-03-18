@@ -14,7 +14,7 @@ userSchema.post('save',  function(req , res ,next){
     next();
 });
 
-userSchema.pre('save', async function(req , res ,next) {
+userSchema.pre('save', async function(next) {
     try {
         const salt = await bcrypt.genSalt();
         const user = this ;

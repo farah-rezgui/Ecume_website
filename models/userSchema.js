@@ -6,6 +6,9 @@ const userSchema = new mongoose.Schema ({
     email : {type : String , required : true  , unique : true },
     password : { type : String , required : true },
     etat : {type: Boolean},
+    adresse : String,
+    numero: Number,
+    codePostal : Number,
 }, {timestamps : true});
 
 userSchema.post('save',  function(req , res ,next){

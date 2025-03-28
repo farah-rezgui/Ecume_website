@@ -1,4 +1,4 @@
-const produitModel = require ('../models/produitSchema');
+const produitModel = require ('../models/produitShema');
 const { message } = require('./usersController');
 
 module.exports.getAllProduit = async (req , res) =>{
@@ -23,8 +23,8 @@ module.exports.getProduitById = async (req , res) =>{
 module.exports.addProduit = async (req , res) =>{
     try {
         console.log(req.body);
-        const {titre ,discription ,image ,prix} = req.body;
-        const produit = new produitModel({titre ,discription ,image ,prix });
+        const {titre ,description ,image ,prix} = req.body;
+        const produit = new produitModel({titre ,description ,image ,prix });
         const produitAdded = await produit.save()
         res.status(200).json({produitAdded});
     } catch (error) {
@@ -50,7 +50,7 @@ module.exports.deleteProduit = async (req , res) =>{
 module.exports.updateProduit = async (req , res) =>{
     try {
         console.log(req.body);
-        const {titre ,discription ,image ,prix } = req.body;
+        const {titre ,description ,image ,prix } = req.body;
 
         const checkIfProduitExists =await produitModel.findById(id);
         if (!checkIfProduitExists ){

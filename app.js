@@ -14,6 +14,8 @@ var usersRouter = require('./routes/users');
 var osRouter = require ('./routes/osRouter');
 var authRouter = require('./routes/authRouter');
 var produitRouter = require('./routes/produitRouter');
+var clientRouter = require ('./routes/clientRouter');
+var commandeRouter = require ('./routes/commandeRouter');
 var app = express();
 
 
@@ -29,6 +31,8 @@ app.use('/users', usersRouter);
 app.use('/os',osRouter);
 app.use('/auth', authRouter);
 app.use('/prod' , produitRouter);
+app.use('/client',clientRouter);
+app.use('/cmd',commandeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

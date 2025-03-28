@@ -65,3 +65,11 @@ module.exports.updateUser = async (req , res) =>{
         res.status(500).json ({message: error.message})
     }
 };
+module.exports.triUsers = async ( req , res ) => {
+    try{
+        const usersListe = await userModel.find().sort();
+        res.status(200).json({usersList});
+    } catch (error){
+        res.status(500).json({message: error.message});
+    }
+};

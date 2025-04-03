@@ -3,8 +3,8 @@ const { message } = require('./usersController');
 
 module.exports.getAllCommande = async (req , res) =>{
     try {
-        const commande = await commandeModel.find();
-        res.status(200).json({commandeList})
+        const commandeListe = await commandeModel.find();
+        res.status(200).json({commandeListe})
     } catch (error) {
         res.status(500).json ({message: error.message})
     }

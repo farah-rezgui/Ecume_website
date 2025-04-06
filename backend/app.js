@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const http = require('http');
+const cors = require('cors');
 
 require("dotenv").config();
 
@@ -49,6 +50,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+app.use(cors({
+  origin: 'http://localhost:5173', // Autorise uniquement ce domaine
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Méthodes autorisées
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 
 const server = http.createServer(app);
 server.listen(process.env.PORT, ()=>{

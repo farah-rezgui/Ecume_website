@@ -22,8 +22,8 @@ module.exports.getUserById = async (req , res) =>{
 module.exports.addUser = async (req , res) =>{
     try {
         console.log(req.body);
-        const {nom , prenom ,  email } = req.body;
-        const user = new userAddedModel({nom , prenom , email });
+        const {username ,   email } = req.body;
+        const user = new userAddedModel({username , email });
         const userAdded = await user.save()
         res.status(200).json({userAdded});
     } catch (error) {
@@ -49,14 +49,14 @@ module.exports.deleteUser = async (req , res) =>{
 module.exports.updateUser = async (req , res) =>{
     try {
         console.log(req.body);
-        const {nom , prenom , email } = req.body;
+        const {username , email } = req.body;
 
         const checkIfUserExists =await userModel.findById(id);
         if (!checkIfUserExists ){
             throw new Error ("user not found");
         }
         const updateUser = await userModel.findByIdAndUpdate(id ,{
-            $set : {nom ,}
+            $set : {username }
         },{new : true}
     )
         res.status(200).json({updateUser});

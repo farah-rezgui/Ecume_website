@@ -23,8 +23,8 @@ module.exports.getCommandeById = async (req , res) =>{
 module.exports.addCommande = async (req , res) =>{
     try {
         console.log(req.body);
-        const {titre , listeDeProduit} = req.body;
-        const commande = new commandeAddedModel({titre , listeDeProduit});
+        const { quantity, price , name , email, phone , address ,client , products , totalAmount,status , createdAt} = req.body;
+        const commande = new commandeModel({ quantity, price , name , email, phone , address ,client , products , totalAmount,status , createdAt});
         const commandeAdded = await commande.save()
         res.status(200).json({commandeAdded});
     } catch (error) {
@@ -50,7 +50,7 @@ module.exports.deleteCommande = async (req , res) =>{
 module.exports.updateCommande = async (req , res) =>{
     try {
         console.log(req.body);
-        const {titre , listeDeProduit} = req.body;
+        const { quantity, price , name , email, phone , address ,client , products} = req.body;
 
         const checkIfCommandeExists =await commandeModel.findById(id);
         if (!checkIfCommandeExists ){

@@ -26,7 +26,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(cors({
+  origin: 'http://localhost:5173', // Autorise uniquement ce domaine
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Méthodes autorisées
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/os',osRouter);
@@ -50,11 +54,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.use(cors({
-  origin: 'http://localhost:5173', // Autorise uniquement ce domaine
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Méthodes autorisées
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+
 
 
 const server = http.createServer(app);

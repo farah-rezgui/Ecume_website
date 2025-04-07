@@ -3,7 +3,7 @@ var router = express.Router();
 const commandeController = require('../controller/commandeController');
 
 router.get('/getAllCommande', commandeController.getAllCommande); 
-router.get('/getCommandeById /:id', commandeController.getCommandeById); 
+router.get('/getCommandeById/:id', commandeController.getCommandeById); 
 router.post('/addCommande', commandeController.addCommande);
 router.delete('/deleteCommande/:id', commandeController.deleteCommande); 
 router.put('/updateCommande/:id', commandeController.updateCommande);

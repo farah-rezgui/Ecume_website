@@ -1,5 +1,4 @@
 const os = require ('os');
-const { message } = require('./usersController');
 const { error } = require('console');
 
 module.exports.getOsInformation = (req,res)=>{

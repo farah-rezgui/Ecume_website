@@ -1,5 +1,4 @@
 const produitModel = require ('../models/produitShema');
-const { message } = require('./usersController');
 
 module.exports.getAllProduit = async (req , res) =>{
     try {

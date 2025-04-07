@@ -1,9 +1,9 @@
-const userModel = require ('../models/userSchema');
+const userModel = require ('../models/userShema');
 
-module.exports.getAllUsers = async (req , res) =>{
+module.exports.getAllUser = async (req , res) =>{
     try {
-        const usersList = await userModel.find();
-        res.status(200).json({usersList})
+        const userList = await userModel.find();
+        res.status(200).json({userList})
     } catch (error) {
         res.status(500).json ({message: error.message})
     }
@@ -19,11 +19,11 @@ module.exports.getUserById = async (req , res) =>{
         res.status(500).json ({message: error.message})
     }
 };
-module.exports.addUserAdmin = async (req , res) =>{
+module.exports.addUser = async (req , res) =>{
     try {
         console.log(req.body);
-        const {nom , prenom , email , password ,adresse ,numero ,codePostal} = req.body;
-        const user = new userModel({nom, prenom , email , password,adresse ,numero ,codePostal});
+        const {nom , prenom ,  email } = req.body;
+        const user = new userAddedModel({nom , prenom , email });
         const userAdded = await user.save()
         res.status(200).json({userAdded});
     } catch (error) {
@@ -37,7 +37,7 @@ module.exports.deleteUser = async (req , res) =>{
         //const id1 = req.params.id;
         const checkIfUserExists =await userModel.findById(id);
         if (!checkIfUserExists ){
-            throw new Error ("User not found");
+            throw new Error ("user not found");
         }
         
         const user = await userModel.findByIdAndDelete(id);
@@ -49,14 +49,14 @@ module.exports.deleteUser = async (req , res) =>{
 module.exports.updateUser = async (req , res) =>{
     try {
         console.log(req.body);
-        const {nom , prenom , adresse ,numero ,codePostal } = req.body;
+        const {nom , prenom , email } = req.body;
 
         const checkIfUserExists =await userModel.findById(id);
         if (!checkIfUserExists ){
-            throw new Error ("User not found");
+            throw new Error ("user not found");
         }
         const updateUser = await userModel.findByIdAndUpdate(id ,{
-            $set : {nom,prenom,adresse ,numero ,codePostal}
+            $set : {nom ,}
         },{new : true}
     )
         res.status(200).json({updateUser});
@@ -64,10 +64,10 @@ module.exports.updateUser = async (req , res) =>{
         res.status(500).json ({message: error.message})
     }
 };
-module.exports.triUsers = async ( req , res ) => {
+module.exports.triUser = async ( req , res ) => {
     try{
-        const usersListe = await userModel.find().sort();
-        res.status(200).json({usersList});
+        const userListe = await userModel.find().sort();
+        res.status(200).json({userList});
     } catch (error){
         res.status(500).json({message: error.message});
     }

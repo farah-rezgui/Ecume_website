@@ -1,4 +1,4 @@
-const userModel = require ('../models/userShema');
+const userModel = require ('../models/userSchema');
 
 module.exports.getAllUser = async (req , res) =>{
     try {
@@ -22,8 +22,8 @@ module.exports.getUserById = async (req , res) =>{
 module.exports.addUser = async (req , res) =>{
     try {
         console.log(req.body);
-        const {username ,   email } = req.body;
-        const user = new userAddedModel({username , email });
+        const {username , email ,password  } = req.body;
+        const user = new userModel({username ,email ,password  });
         const userAdded = await user.save()
         res.status(200).json({userAdded});
     } catch (error) {
@@ -48,15 +48,15 @@ module.exports.deleteUser = async (req , res) =>{
 };
 module.exports.updateUser = async (req , res) =>{
     try {
-        console.log(req.body);
+        const {id} = req.params;
+        //console.log(req.body);
         const {username , email } = req.body;
-
         const checkIfUserExists =await userModel.findById(id);
         if (!checkIfUserExists ){
             throw new Error ("user not found");
         }
         const updateUser = await userModel.findByIdAndUpdate(id ,{
-            $set : {username }
+            $set : {username  , email}
         },{new : true}
     )
         res.status(200).json({updateUser});
@@ -66,7 +66,7 @@ module.exports.updateUser = async (req , res) =>{
 };
 module.exports.triUser = async ( req , res ) => {
     try{
-        const userListe = await userModel.find().sort();
+        const userList = await userModel.find().sort({username:1});
         res.status(200).json({userList});
     } catch (error){
         res.status(500).json({message: error.message});

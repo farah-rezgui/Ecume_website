@@ -12,7 +12,6 @@ const {connectToMongoDB} = require('./config/db');
 
 var indexRouter = require('./routes/index');
 var osRouter = require ('./routes/osRouter');
-var authRouter = require('./routes/authRouter');
 var produitRouter = require('./routes/produitRouter');
 var userRouter = require ('./routes/userRouter');
 var commandeRouter = require ('./routes/commandeRouter');
@@ -32,7 +31,6 @@ app.use(cors({
 }));
 app.use('/', indexRouter);
 app.use('/os',osRouter);
-app.use('/auth', authRouter);
 app.use('/prod' , produitRouter);
 app.use('/user',userRouter);
 app.use('/cmd',commandeRouter);

@@ -20,16 +20,24 @@ module.exports.getProduitById = async (req , res) =>{
     }
 };
 module.exports.addProduit = async (req , res) =>{
-    try {
-        console.log(req.body);
-        const {titre ,description ,image ,prix} = req.body;
-        const produit = new produitModel({titre ,description ,image ,prix });
-        const produitAdded = await produit.save()
-        res.status(200).json({produitAdded});
-    } catch (error) {
-        res.status(500).json ({message: error.message})
-    }
-};
+        try {
+            const { titre, description, prix, quantityStock } = req.body;
+            const imagePath = req.file ? req.file.path : null; // récupère le chemin du fichier
+        
+            const produit = new produitModel({
+            titre,
+            description,
+            prix,
+            quantityStock,
+            image: imagePath,
+            });
+        
+            const savedProduit = await produit.save();
+            res.status(200).json(savedProduit);
+        } catch (error) {
+            res.status(500).json({ message: error.message });
+        }
+        };
 module.exports.deleteProduit = async (req , res) =>{
     try {
         //console.log(req.params.id);
@@ -49,14 +57,14 @@ module.exports.deleteProduit = async (req , res) =>{
 module.exports.updateProduit = async (req , res) =>{
     try {
         console.log(req.body);
-        const {titre ,description ,image ,prix } = req.body;
+        const {titre ,description ,image ,prix , quantityStock} = req.body;
 
         const checkIfProduitExists =await produitModel.findById(id);
         if (!checkIfProduitExists ){
             throw new Error ("Produit not found");
         }
         const updateProduit = await produitModel.findByIdAndUpdate(id ,{
-            $set : {nom ,}
+            $set : {titre ,description ,image ,prix , quantityStock}
         },{new : true}
     )
         res.status(200).json({updateProduit});
@@ -66,7 +74,7 @@ module.exports.updateProduit = async (req , res) =>{
 };
 module.exports.triProduit = async ( req , res ) => {
     try{
-        const produitListe = await produitModel.find().sort();
+        const produitList = await produitModel.find().sort();
         res.status(200).json({produitList});
     } catch (error){
         res.status(500).json({message: error.message});

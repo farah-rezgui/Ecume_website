@@ -14,9 +14,9 @@ const produitSchema = new mongoose.Schema(
       min: 0,
     },
     quantityStock: {
-      type: Number,
-      required: true,
-      min: 0,
+    type: Number,
+    required: true,
+    min: 0,
     },
   },
   { timestamps: true }

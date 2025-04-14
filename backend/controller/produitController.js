@@ -22,7 +22,7 @@ module.exports.getProduitById = async (req , res) =>{
 module.exports.addProduit = async (req , res) =>{
         try {
             const { titre, description, prix, quantityStock } = req.body;
-            const imagePath = req.file ? req.file.path : null; // récupère le chemin du fichier
+            const imagePath = req.file ? "/uploads/" + req.file.originalname : null; 
         
             const produit = new produitModel({
             titre,
@@ -56,9 +56,10 @@ module.exports.deleteProduit = async (req , res) =>{
 };
 module.exports.updateProduit = async (req , res) =>{
     try {
-        console.log(req.body);
+        
+        const {id} =req.params;
         const {titre ,description ,image ,prix , quantityStock} = req.body;
-
+        console.log(titre);
         const checkIfProduitExists =await produitModel.findById(id);
         if (!checkIfProduitExists ){
             throw new Error ("Produit not found");

@@ -10,6 +10,7 @@ require("dotenv").config();
 
 const {connectToMongoDB} = require('./config/db');
 
+
 var indexRouter = require('./routes/index');
 var osRouter = require ('./routes/osRouter');
 var produitRouter = require('./routes/produitRouter');
@@ -34,6 +35,7 @@ app.use('/os',osRouter);
 app.use('/prod' , produitRouter);
 app.use('/user',userRouter);
 app.use('/cmd',commandeRouter);
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -32,6 +32,7 @@ module.exports.addUser = async (req , res) =>{
 };
 module.exports.deleteUser = async (req , res) =>{
     try {
+        console.log(">>> SUPPRESSION utilisateur ID:", req.params.id);
         //console.log(req.params.id);
         const {id} = req.params;
         //const id1 = req.params.id;

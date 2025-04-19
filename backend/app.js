@@ -9,12 +9,14 @@ const cors = require("cors");
 require("dotenv").config();
 
 const { connectToMongoDB } = require("./config/db");
+const authRouter = require('./routes/authRouter');
 
 var indexRouter = require("./routes/index");
 var osRouter = require("./routes/osRouter");
 var produitRouter = require("./routes/produitRouter");
 var userRouter = require("./routes/userRouter");
 var commandeRouter = require("./routes/commandeRouter");
+
 var app = express();
 
 app.use(logger("dev"));
@@ -30,6 +32,9 @@ app.use("/prod", produitRouter);
 app.use("/user", userRouter);
 app.use("/cmd", commandeRouter);
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+app.use('/auth', authRouter);
+
+const { authMiddleware } = require('./middlewares/authMiddleware');
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -48,5 +53,6 @@ app.use(function (err, req, res, next) {
 const server = http.createServer(app);
 server.listen(process.env.PORT , () => {
   connectToMongoDB();
-  console.log(`Server is running on port ${process.env.PORT }`);
+  console.log(`Server is running on port`);
 });
+//console.log(`Server is running on port ${process.env.PORT }`);

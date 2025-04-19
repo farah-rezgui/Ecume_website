@@ -30,27 +30,64 @@ exports.signup = async (req, res) => {
 };
 
 exports.signin = async (req, res) => {
-  try {
     const { email, password } = req.body;
     
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+    try {
+      // Normalisez l'email pour éviter les problèmes de casse
+      const normalizedEmail = email.toLowerCase().trim();
+      
+      const user = await User.findOne({ email: normalizedEmail }).select('+password');
+      
+      if (!user) {
+        console.log(`Aucun utilisateur trouvé avec l'email: ${normalizedEmail}`);
+        return res.status(401).json({ 
+          error: 'Invalid credentials',
+          message: 'Email ou mot de passe incorrect'
+        });
+      }
+  
+      console.log(`Comparaison du mot de passe pour l'utilisateur: ${user._id}`);
+      const isMatch = await user.comparePassword(password);
+      
+      if (!isMatch) {
+        console.log('Mot de passe incorrect pour l\'utilisateur:', user._id);
+        return res.status(401).json({
+          error: 'Invalid credentials', 
+          message: 'Email ou mot de passe incorrect'
+        });
+      }
+  
+      // Créez le token JWT
+      const token = jwt.sign(
+        {
+          userId: user._id,
+          role: user.role,
+          email: user.email
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: '24h' }
+      );
+  
+      // Ne renvoyez jamais le mot de passe dans la réponse
+      const userResponse = {
+        id: user._id,
+        email: user.email,
+        username: user.username,
+        role: user.role,
+        createdAt: user.createdAt
+      };
+  
+      res.json({
+        success: true,
+        token,
+        user: userResponse
+      });
+  
+    } catch (error) {
+      console.error('Erreur lors de la connexion:', error);
+      res.status(500).json({
+        error: 'Server error',
+        message: 'Une erreur est survenue lors de la connexion'
+      });
     }
-
-    const isMatch = await user.comparePassword(password);
-    if (!isMatch) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
-
-    const token = jwt.sign(
-      { userId: user._id, role: user.role },
-      process.env.JWT_SECRET,
-      { expiresIn: '24h' }
-    );
-
-    res.json({ token, user: { id: user._id, email: user.email, role: user.role } });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+  };

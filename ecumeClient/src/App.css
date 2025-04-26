@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #fff8f0;
+  color: #333;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;

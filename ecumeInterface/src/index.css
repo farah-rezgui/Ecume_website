@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
-/* OR use the local font package */
-/* @import '@fontsource/inter'; */
-/* @import '@fontsource/poppins'; */
-
 
 @tailwind base;
 @tailwind components;
@@ -14,12 +10,16 @@
   }
 
   body {
-    front-family: 'Inter', sans-serif;
+    @apply font-inter;
   }
 
-h1,h2,h3,h4,h5,h6 {
-    front-family: 'Poppins',sans-serif;
-    front-weight:blod;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-poppins font-bold;
   }
 }
 

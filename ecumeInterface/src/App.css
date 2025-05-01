@@ -1,8 +1,4 @@
-/* Use either Google Fonts OR @fontsource imports - not both */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
-/* OR */
-/* @import '@fontsource/inter';
-@import '@fontsource/poppins'; */
 
 @tailwind base;
 @tailwind components;
@@ -14,16 +10,16 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
-    /* Alternative if you want to use Tailwind's font class */
-    /* @apply font-inter; */
+    @apply font-inter;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    /* Alternative Tailwind version */
-    /* @apply font-poppins font-bold; */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-poppins font-bold;
   }
 }
 

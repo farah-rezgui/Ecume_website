@@ -6,7 +6,7 @@ module.exports = {
       "./src/**/*.{js,ts,jsx,tsx}",
       "*.{js,ts,jsx,tsx,mdx}",
       "app/**/*.{ts,tsx}",
-      "components/**/*.{ts,tsx}"
+      "components/**/*.{ts,tsx}",
     ],
     theme: {
       extend: {
@@ -53,13 +53,18 @@ module.exports = {
             500: "#FFBE29",
             600: "#E6A800",
           },
-        },
-        borderRadius: {
-          lg: "var(--radius)",
-          md: "calc(var(--radius) - 2px)",
-          sm: "calc(var(--radius) - 4px)",
+          borderRadius: {
+            lg: "var(--radius)",
+            md: "calc(var(--radius) - 2px)",
+            sm: "calc(var(--radius) - 4px)",
+          },
+          fontFamily: {
+            inter: ["Inter", "sans-serif"],
+            poppins: ["Poppins", "sans-serif"],
+          },
         },
       },
     },
     plugins: [require("tailwindcss-animate")],
   };
+  

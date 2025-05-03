@@ -35,11 +35,11 @@ const Navbar = () => {
         {/* Logo */}
         <Link to='/' className='flex items-center'>
           <div className='text-3xl font-bold'>
-            <span className='text-black'>ecume</span>
-            <span className='text-yellow-400'>.</span>
-          </div>
-          <div className='text-xs tracking-widest ml-1 mt-auto mb-1'>
-            DIGITAL CULTURAL LAB
+            <img
+            src='/public/images/digital-long.png'
+            alt='logo'
+            className="h-48 w-96 object-scale-down"
+            />
           </div>
         </Link>
 
@@ -55,16 +55,16 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to='/parcours'
+                to='/actualite'
                 className='font-medium hover:text-yellow-500 transition'>
-                Parcours
+                Actualité
               </Link>
             </li>
             <li>
               <Link
-                to='/news'
+                to='/apropos'
                 className='font-medium hover:text-yellow-500 transition'>
-                News
+                A propos
               </Link>
             </li>
             <li>
@@ -75,19 +75,6 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-        </div>
-
-        {/* Right Side - Language & Search */}
-        <div className='hidden lg:flex items-center space-x-6'>
-          <button
-            onClick={toggleLanguage}
-            className='flex items-center space-x-1'>
-            <Globe size={18} />
-            <span className='text-sm font-medium'>{language}</span>
-          </button>
-          <button className='hover:text-yellow-500 transition'>
-            <Search size={20} />
-          </button>
         </div>
 
         {/* Mobile Menu Button */}

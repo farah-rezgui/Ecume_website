@@ -32,12 +32,19 @@ function HomePage() {
 function App() {
   return (
     <Router>
+      <div className="app-container flex flex-col min-h-screen">
       <Navbar />
+      <main className = "flex-grow">
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/actualite' element={<actualite />} />
+        <Route path='/apropos' element={<apropos />} />
+        <Route path='/contact' element={<contact />} />
         {/* Add more routes as needed for future scalability */}
       </Routes>
+      </main>
       <Footer />
+      </div>
     </Router>
   );
 }

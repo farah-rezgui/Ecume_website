@@ -1,11 +1,19 @@
 import React from 'react';
 import './apropos.module.css'; 
 
-const APropos = () => {
+const blobStyle={
+  position : "absolute",
+  zIndex: "-1",
+  top: "21%",
+  aspectRatio: "1",
+  width: "300px",
+  left: "7%",
+}
+const Apropos = () => {
   return (
-    <div className={styles.aproposContainer}>
+    <div className="apropos-container mx-[200px]  my-[100px] ">
       <h1>À propos</h1>
-      
+      <img style={blobStyle} src="/src/assets/blob.svg" alt="blob" />
       <section className="mission-section">
         <h2>MISSION</h2>
         <p>
@@ -13,6 +21,10 @@ const APropos = () => {
           contribuant ainsi à préserver, célébrer et transmettre la diversité culturelle de manière 
           accessible, éducative et passionnante pour les générations à venir.
         </p>
+        
+      </section>
+      <section className="vision-section">
+        <h2>VISION</h2>
         <p>
           La mission de ECLIME CULTURE est de réinventer la manière dont les individus interrogéssent 
           avec leur patrimoine culturel en utilisant les nouvelles technologies tout en stimulant 
@@ -45,6 +57,13 @@ const APropos = () => {
           frontières, demi-maser les défis technologiques, tout en préservant l'assence interprontée 
           de l'héritage qui nous relie au passé.
         </p>
+        <img
+          src='/public/images/aproposimg.jpeg'
+          alt='Apropos'
+          className='w-full h-full object-cover'
+          width={1920}  // largeur réelle de l'image
+          height={1080} // hauteur réelle de l'image
+        />
         <div className="tags">
           <span>#Architecture</span>
           <span>#Patrimoine</span>
@@ -53,12 +72,9 @@ const APropos = () => {
         </div>
       </section>
 
-      <section className="vision-section">
-        <h2>VISION</h2>
-        {/* Contenu de la vision à ajouter ici */}
-      </section>
+
     </div>
   );
 };
 
-export default APropos;
+export default Apropos;

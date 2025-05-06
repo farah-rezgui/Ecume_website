@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Search, Globe, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [language, setLanguage] = useState("Fr");
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,23 +23,27 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleLanguage = () => {
-    setLanguage(language === "Fr" ? "En" : "Fr");
-  };
+
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+      className={`${
+        location.pathname === "/" ? "fixed" : "relative bg-white"
+      } w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white shadow-md py-2"
+          : location.pathname === "/"
+          ? "bg-transparent py-4"
+          : "py-4"
       }`}>
       <div className='container-custom flex items-center justify-between'>
         {/* Logo */}
         <Link to='/' className='flex items-center'>
           <div className='text-3xl font-bold'>
             <img
-            src='/public/images/digital-long.png'
-            alt='logo'
-            className="h-48 w-96 object-scale-down"
+              src='/public/images/digital-long.png'
+              alt='logo'
+              className='h-48 w-96 object-scale-down'
             />
           </div>
         </Link>
@@ -58,6 +63,13 @@ const Navbar = () => {
                 to='/actualite'
                 className='font-medium hover:text-yellow-500 transition'>
                 Actualité
+              </Link>
+            </li>
+            <li>
+              <Link
+                to='/reservation'
+                className='font-medium hover:text-yellow-500 transition'>
+                Reservation
               </Link>
             </li>
             <li>

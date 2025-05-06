@@ -1,123 +1,148 @@
-"use client";
+import { Link } from "react-router-dom";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
+} from "lucide-react";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-
-const Actualite = () => {
-  const actualites = [
-    {
-      id: 1,
-      title: "Nouvelle Collection Printemps",
-      description: "Découvrez notre nouvelle collection inspirée par les couleurs vibrantes du printemps.",
-      image: "/images/printemps.jpg",
-      date: "15 Avril 2024"
-    },
-    {
-      id: 2,
-      title: "Événement Exclusive",
-      description: "Rejoignez-nous pour une soirée de lancement avec des invités spéciaux et des surprises.",
-      image: "/images/evenement.jpg",
-      date: "22 Mai 2024"
-    },
-    {
-      id: 3,
-      title: "Promotion Spéciale",
-      description: "Profitez de -30% sur toute la boutique pendant une semaine seulement.",
-      image: "/images/promotion.jpg",
-      date: "1 Juin 2024"
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
+const Contact = () => {
   return (
-    <div className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-          Nos Actualités
-        </h2>
-        <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-          Découvrez les dernières nouvelles et événements
-        </p>
-      </motion.div>
+    <footer className='bg-gray-900 text-white pt-16 pb-8'>
+      <div className='container-custom'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mb-10'>
+          {/* Contact */}
+          <div>
+            <h3 className='text-xl font-bold mb-6'>Contact</h3>
+            <ul className='space-y-4'>
+              <li className='flex items-start'>
+                <MapPin className='h-5 w-5 text-yellow-400 mr-3 mt-1' />
+                <span>123 Rue de Carthage, Tunis 1000, Tunisie</span>
+              </li>
+              <li className='flex items-center'>
+                <Phone className='h-5 w-5 text-yellow-400 mr-3' />
+                <span>+216 71 123 456</span>
+              </li>
+              <li className='flex items-center'>
+                <Mail className='h-5 w-5 text-yellow-400 mr-3' />
+                <span>contact@ecume-lab.com</span>
+              </li>
+            </ul>
+            <div className='flex space-x-4 mt-6'>
+              <a href='#' className='text-gray-400 hover:text-white transition'>
+                <Facebook className='h-5 w-5' />
+              </a>
+              <a href='#' className='text-gray-400 hover:text-white transition'>
+                <Twitter className='h-5 w-5' />
+              </a>
+              <a href='#' className='text-gray-400 hover:text-white transition'>
+                <Instagram className='h-5 w-5' />
+              </a>
+              <a href='#' className='text-gray-400 hover:text-white transition'>
+                <Youtube className='h-5 w-5' />
+              </a>
+            </div>
+          </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-7xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-      >
-        {actualites.map((actualite) => (
-          <motion.div
-            key={actualite.id}
-            variants={itemVariants}
-            whileHover={{ y: -5, scale: 1.02 }}
-            className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white"
-          >
-            <div className="flex-shrink-0 h-48 relative">
-              <Image
-                src={actualite.image}
-                alt={actualite.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+          {/* Navigation */}
+          <div>
+            <h3 className='text-xl font-bold mb-6'>Navigation</h3>
+            <ul className='space-y-3'>
+              <li>
+                <Link to='/' className='hover:text-yellow-400 transition'>
+                  Accueil
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/parcours'
+                  className='hover:text-yellow-400 transition'>
+                  Parcours
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/experiences'
+                  className='hover:text-yellow-400 transition'>
+                  Expériences
+                </Link>
+              </li>
+              <li>
+                <Link to='/news' className='hover:text-yellow-400 transition'>
+                  Actualités
+                </Link>
+              </li>
+              <li>
+                <Link to='/about' className='hover:text-yellow-400 transition'>
+                  À propos
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/contact'
+                  className='hover:text-yellow-400 transition'>
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Liens utiles */}
+          <div>
+            <h3 className='text-xl font-bold mb-6'>Liens utiles</h3>
+            <ul className='space-y-3'>
+              <li>
+                <a href='#' className='hover:text-yellow-400 transition'>
+                  Politique de confidentialité
+                </a>
+              </li>
+              <li>
+                <a href='#' className='hover:text-yellow-400 transition'>
+                  Conditions d'utilisation
+                </a>
+              </li>
+              <li>
+                <a href='#' className='hover:text-yellow-400 transition'>
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href='#' className='hover:text-yellow-400 transition'>
+                  Partenaires
+                </a>
+              </li>
+              <li>
+                <a href='#' className='hover:text-yellow-400 transition'>
+                  Carrières
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className='pt-8 border-t border-gray-800 text-center text-gray-400 text-sm'>
+          <div className='flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0'>
+            <div className='flex items-center'>
+              <span className='text-xl font-bold mr-2'>
+                <span className='text-white'>ecume</span>
+                <span className='text-yellow-400'>.</span>
+              </span>
+              <span className='text-xs tracking-widest'>
+                DIGITAL CULTURAL LAB
+              </span>
             </div>
-            <div className="flex-1 p-6 flex flex-col justify-between">
-              <div className="flex-1">
-                <p className="text-sm font-medium text-indigo-600">
-                  {actualite.date}
-                </p>
-                <motion.h3 
-                  className="mt-2 text-xl font-semibold text-gray-900"
-                  whileHover={{ color: "#4f46e5" }}
-                >
-                  {actualite.title}
-                </motion.h3>
-                <p className="mt-3 text-base text-gray-500">
-                  {actualite.description}
-                </p>
-              </div>
-              <div className="mt-6">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-                >
-                  En savoir plus
-                </motion.button>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
+            <span className='md:ml-4'>
+              ©2024 ECUME Digital Cultural Lab. Tous droits réservés.
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 
-export default Actualite;
+export default Contact;
+

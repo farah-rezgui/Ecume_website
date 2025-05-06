@@ -11,38 +11,37 @@ import {
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-900 text-white pt-16 pb-8'>
-      <div className='container-custom'>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-10 mb-10'>
+    <footer className='bg-gray-900 text-white pt-16 pb-8 '>
+      <div className='container-custom '>
+        <div className=' flex justify-between  gap-10 mb-10   '>
           {/* Contact */}
           <div>
-            <h3 className='text-xl font-bold mb-6'>Contact</h3>
+            <h3 className='text-xl font-bold mb-6 '>Contact</h3>
             <ul className='space-y-4'>
-              <li className='flex items-start'>
+              <li className='flex items-start '>
                 <MapPin className='h-5 w-5 text-yellow-400 mr-3 mt-1' />
-                <span>123 Rue de Carthage, Tunis 1000, Tunisie</span>
+                <span>Tunis,
+                71 Av. Jean Jaurès,Tunis</span>
               </li>
               <li className='flex items-center'>
                 <Phone className='h-5 w-5 text-yellow-400 mr-3' />
-                <span>+216 71 123 456</span>
+                <span>+216 99084410 - 22959752</span>
               </li>
               <li className='flex items-center'>
                 <Mail className='h-5 w-5 text-yellow-400 mr-3' />
-                <span>contact@ecume-lab.com</span>
+                <span>contact@ecume.tn 
+                  Westerwelle Startup Haus Tunis,</span>
               </li>
             </ul>
             <div className='flex space-x-4 mt-6'>
-              <a href='#' className='text-gray-400 hover:text-white transition'>
+              <a href='https://www.facebook.com/profile.php?id=61556609878965' className='text-gray-400 hover:text-white transition'>
                 <Facebook className='h-5 w-5' />
               </a>
               <a href='#' className='text-gray-400 hover:text-white transition'>
                 <Twitter className='h-5 w-5' />
               </a>
-              <a href='#' className='text-gray-400 hover:text-white transition'>
+              <a href='https://www.instagram.com/ecume_culture/#' className='text-gray-400 hover:text-white transition'>
                 <Instagram className='h-5 w-5' />
-              </a>
-              <a href='#' className='text-gray-400 hover:text-white transition'>
-                <Youtube className='h-5 w-5' />
               </a>
             </div>
           </div>
@@ -89,41 +88,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* Liens utiles */}
-          <div>
-            <h3 className='text-xl font-bold mb-6'>Liens utiles</h3>
-            <ul className='space-y-3'>
-              <li>
-                <a href='#' className='hover:text-yellow-400 transition'>
-                  Politique de confidentialité
-                </a>
-              </li>
-              <li>
-                <a href='#' className='hover:text-yellow-400 transition'>
-                  Conditions d'utilisation
-                </a>
-              </li>
-              <li>
-                <a href='#' className='hover:text-yellow-400 transition'>
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href='#' className='hover:text-yellow-400 transition'>
-                  Partenaires
-                </a>
-              </li>
-              <li>
-                <a href='#' className='hover:text-yellow-400 transition'>
-                  Carrières
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        <div className='pt-8 border-t border-gray-800 text-center text-gray-400 text-sm'>
+        <div className='pt-8 border-t  text-center  text-sm flex justify-between '>
           <div className='flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0'>
             <div className='flex items-center'>
               <span className='text-xl font-bold mr-2'>
@@ -135,7 +102,12 @@ const Footer = () => {
               </span>
             </div>
             <span className='md:ml-4'>
-              ©2024 ECUME Digital Cultural Lab. Tous droits réservés.
+              ©2025 ECUME Digital Cultural Lab. 
+            </span >
+            <span className='md:ml-4'>
+            <a href='https://github.com/farah-rezgui' className=' hover:text-white transition'>
+              Site created by  Rezgui Farah
+              </a>
             </span>
           </div>
         </div>

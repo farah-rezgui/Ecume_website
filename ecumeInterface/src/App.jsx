@@ -11,6 +11,11 @@ import NewsSection from "./components/NewsSection";
 import About from "./components/About";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
+import Actualite from "./components/Actualite";
+import Contact from "./components/contact";
+import Apropos from "./components/apropos";
+import Reservation from "./components/reservation";
+
 
 function HomePage() {
   return (
@@ -37,9 +42,10 @@ function App() {
       <main className = "flex-grow">
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/actualite' element={<actualite />} />
-        <Route path='/apropos' element={<apropos />} />
-        <Route path='/contact' element={<contact />} />
+        <Route path='/actualite' element={<Actualite />} />
+        <Route path='/apropos' element={<Apropos />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/reservation' element={<Reservation />} />
         {/* Add more routes as needed for future scalability */}
       </Routes>
       </main>

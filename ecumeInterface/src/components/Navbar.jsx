@@ -36,7 +36,7 @@ const Navbar = () => {
           ? "bg-transparent py-4"
           : "py-4"
       }`}>
-      <div className='container-custom flex items-center justify-between'>
+      <div className='container-custom flex  items-center justify-between'>
         {/* Logo */}
         <Link to='/' className='flex items-center'>
           <div className='text-3xl font-bold'>
@@ -49,7 +49,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className='hidden lg:flex items-center justify-center flex-1'>
+        <div className='hidden lg:flex items-center justify-end flex-1'>
           <ul className='flex space-x-8'>
             <li>
               <Link

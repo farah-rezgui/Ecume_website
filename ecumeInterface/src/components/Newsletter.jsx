@@ -44,7 +44,7 @@ const Newsletter = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}>
               <img
-                src='/placeholder.svg?height=300&width=300'
+                src='/public/images/bienvenue.jpg'
                 alt='Newsletter illustration'
                 className='max-w-full h-auto'
               />

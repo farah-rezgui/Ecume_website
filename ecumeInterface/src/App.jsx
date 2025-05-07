@@ -5,7 +5,6 @@ import ExploreSection from "./components/ExploreSection";
 import Highlights from "./components/Highlights";
 import WhyEcume from "./components/WhyEcume";
 import DiscoverSection from "./components/DiscoverSection";
-import RecommendedDestinations from "./components/RecommendedDestinations";
 import CTASection from "./components/CTASection";
 import NewsSection from "./components/NewsSection";
 import About from "./components/About";
@@ -15,6 +14,9 @@ import Actualite from "./components/Actualite";
 import Contact from "./components/contact";
 import Apropos from "./components/apropos";
 import Reservation from "./components/reservation";
+import JeuDeMemoir from "./components/jeuDeMemoir";
+import LeboitAMysteres from "./components/leBoitAMysteres";
+import FormulaireCommande from "./components/formulaireCommande";
 
 
 function HomePage() {
@@ -25,7 +27,6 @@ function HomePage() {
       <Highlights />
       <WhyEcume />
       <DiscoverSection />
-      <RecommendedDestinations />
       <CTASection />
       <NewsSection />
       <About />
@@ -46,7 +47,9 @@ function App() {
         <Route path='/apropos' element={<Apropos />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/reservation' element={<Reservation />} />
-        {/* Add more routes as needed for future scalability */}
+        <Route path='/jeuDeMemoir' element={<JeuDeMemoir />} />
+        <Route path='/leBoitAMysteres' element={<LeboitAMysteres />} />
+        <Route path='/formulaireCommande' element={<FormulaireCommande/>} />
       </Routes>
       </main>
       <Footer />

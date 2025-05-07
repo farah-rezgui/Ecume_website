@@ -20,7 +20,7 @@ const About = () => {
             présent, en utilisant les technologies numériques pour rendre
             l'histoire accessible et engageante pour tous.
           </p>
-          <button className='btn-secondary'>En savoir plus</button>
+          <a href="/apropos"> <button className='btn-secondary'>En savoir plus</button></a>
         </motion.div>
       </div>
     </section>

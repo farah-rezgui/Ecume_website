@@ -1,19 +1,21 @@
 import React from 'react';
 import './apropos.module.css'; 
 
-const blobStyle={
+/*const blobStyle={
   position : "absolute",
   zIndex: "-1",
   top: "21%",
   aspectRatio: "1",
   width: "300px",
   left: "7%",
-}
+}*/
 const Apropos = () => {
   return (
-    <div className="apropos-container mx-[200px]  my-[100px] ">
-      <h1>À propos</h1>
-      <img style={blobStyle} src="/src/assets/blob.svg" alt="blob" />
+    <div className="apropos-container mx-[200px]  my-[100px] flex flex-col  gap-16 "> 
+      <div className='flex gap-16'> 
+        <div>
+        <h1>À propos</h1>
+      <img  src="/src/assets/blob.svg" className='absolute -z-10 top-[21%] w-72 left-[7%] aspect-square' alt="blob" />
       <section className="mission-section">
         <h2>MISSION</h2>
         <p>
@@ -23,18 +25,19 @@ const Apropos = () => {
         </p>
         
       </section>
-      <section className="vision-section">
-        <h2>VISION</h2>
+        </div>
+        <section className="vision-section">
+        <h2>VISION : </h2>
         <p>
           La mission de ECLIME CULTURE est de réinventer la manière dont les individus interrogéssent 
           avec leur patrimoine culturel en utilisant les nouvelles technologies tout en stimulant 
           l'attachement communautaire et inspirant les générations actuelles et futures.
         </p>
       </section>
+      </div>
 
-      <hr className="separator" />
-
-      <section className="about-section">
+      <section className="about-section flex gap-12">
+        <div>
         <h2>À PROPOS DE NOUS</h2>
         <p>
           Bienvenue dans notre univers, où chaque projet est fictico d'un rêve primant de. Notre approche 
@@ -57,22 +60,58 @@ const Apropos = () => {
           frontières, demi-maser les défis technologiques, tout en préservant l'assence interprontée 
           de l'héritage qui nous relie au passé.
         </p>
+        <div className="tags">
+          <span>#Architecture</span>
+          <span>#Patrimoine</span>
+          <span>#RésilitéVirtuelle</span>
+          <span>#RésilitéAugmentée</span>
+        </div> 
+        </div>
+        <div>
         <img
           src='/public/images/aproposimg.jpeg'
           alt='Apropos'
           className='w-full h-full object-cover'
           width={1920}  // largeur réelle de l'image
           height={1080} // hauteur réelle de l'image
-        />
-        <div className="tags">
-          <span>#Architecture</span>
-          <span>#Patrimoine</span>
-          <span>#RésilitéVirtuelle</span>
-          <span>#RésilitéAugmentée</span>
+        /> 
         </div>
+
       </section>
 
+      <div className='flex gap-9 mt-24'> 
+        <div>
+      <div className="flex flex-col  ">
+        <div>
+          <img src="/public/images/nadia.jpg" alt="ceo" />
+        </div>
+        <div> 
+        <h2>Co-fondatrice & CEO Nadia Bouzgarrou</h2>
+        <ul><li>🏛 Architecte Spécialiste en Patrimoine.</li>
+          <li>💡Passionnée par la Convergence entre Héritage et Innovation.</li>
+          <li>🌐Exploratrice des Nouvelles Frontières des nouvelles technologies.</li>
+          <li>🎓Chercheure en Sciences de l'Architecture.</li>
+          <li>💼Entrepreneure Socio-culturel.</li>
+          </ul>
+        </div>
 
+      </div>
+        </div>
+        <div className="flex flex-col">
+          <div>
+            <img src="/public/images/khaled.jpg" alt="cto" />
+          </div>
+          <div>
+          <h2>Co-fondateur & CTO Khaled Abdallah </h2>
+          <ul>
+            <li> 🏛 Architecte Spécialiste en Patrimoine .</li>
+            <li> 💼 Entrepreneur Socio-culturel. </li>
+            <li> 💡 Enchanté par les joyaux de la culture.</li>
+            <li> 🎨 Motion Designer.</li>
+          </ul>
+          </div>
+      </div>
+      </div>
     </div>
   );
 };

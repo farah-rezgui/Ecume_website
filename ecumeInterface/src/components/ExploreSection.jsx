@@ -9,37 +9,37 @@ const destinations = [
     id: 1,
     name: "Carthage",
     location: "Tunis",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/public/images/carthage.jpg",
   },
   {
     id: 2,
     name: "Dougga",
     location: "Béja",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/public/images/dogga.jpg",
   },
   {
     id: 3,
     name: "El Jem",
     location: "Mahdia",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/public/images/eljam.jpeg",
   },
   {
     id: 4,
     name: "Bulla Regia",
     location: "Jendouba",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/public/images/Bulla Regia.jpg",
   },
   {
     id: 5,
     name: "Kairouan",
     location: "Kairouan",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/public/images/kairoun.jpg",
   },
   {
     id: 6,
     name: "Sidi Bou Said",
     location: "Tunis",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/public/images/sidibou.jpeg",
   },
 ];
 
@@ -66,9 +66,9 @@ const ExploreSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}>
           <h2 className='section-title'>EXPLORER</h2>
-          <p className='section-subtitle'>
+          <h3 className='section-subtitle'>
             Lieux historiques culturels de Tunisie
-          </p>
+          </h3>
         </motion.div>
 
         <div className='relative'>

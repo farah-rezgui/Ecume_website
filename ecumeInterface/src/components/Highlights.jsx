@@ -5,17 +5,19 @@ import { motion } from "framer-motion";
 const highlights = [
   {
     id: 1,
-    title: "Visite virtuelle du site archéologique de Carthage",
+    title: "Jeu De Mémore",
     description:
-      "Explorez les ruines de l'ancienne cité punique à travers une expérience immersive en réalité augmentée.",
-    image: "/placeholder.svg?height=300&width=500",
+      "فردة و لقات اختها",
+    image: "/public/images/jeuDeMemoir.jpg",
+    link : "/jeuDeMemoir"
   },
   {
     id: 2,
-    title: "Atelier de mosaïque traditionnelle",
+    title: "Le Boite Mystéres",
     description:
-      "Apprenez les techniques ancestrales de création de mosaïques romaines avec des artisans locaux.",
-    image: "/placeholder.svg?height=300&width=500",
+      "صندوق عجب",
+    image: "/public/images/leBoitAMysteres.jpg",
+    link:"/leBoitAMysteres"
   },
 ];
 
@@ -51,6 +53,7 @@ const Highlights = () => {
               <div className='p-6'>
                 <h3 className='text-xl font-bold mb-3'>{item.title}</h3>
                 <p className='text-gray-600'>{item.description}</p>
+                <a href={item.link}>
                 <button className='mt-4 text-yellow-500 font-medium flex items-center hover:text-yellow-600 transition'>
                   En savoir plus
                   <svg
@@ -65,6 +68,7 @@ const Highlights = () => {
                     />
                   </svg>
                 </button>
+                </a>
               </div>
             </motion.div>
           ))}

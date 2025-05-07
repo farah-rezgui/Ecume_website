@@ -19,7 +19,7 @@ const services = [
   },
   {
     id: 3,
-    title: "Ressources numériques",
+    title: "Parcours Intelligent",
     icon: <BookOpen className='h-12 w-12 text-yellow-500' />,
     description: "Accédez à notre bibliothèque de contenus éducatifs",
   },

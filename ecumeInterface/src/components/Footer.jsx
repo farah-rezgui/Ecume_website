@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className='bg-gray-900 text-white pt-16 pb-8 '>
+    <footer className='bg-white-600 text-black pt-16 pb-8 '>
       <div className='container-custom '>
         <div className=' flex justify-between  gap-10 mb-10   '>
           {/* Contact */}
@@ -34,13 +34,13 @@ const Footer = () => {
               </li>
             </ul>
             <div className='flex space-x-4 mt-6'>
-              <a href='https://www.facebook.com/profile.php?id=61556609878965' className='text-gray-400 hover:text-white transition'>
+              <a href='https://www.facebook.com/profile.php?id=61556609878965' className='text-gray-400 hover:text-black transition'>
                 <Facebook className='h-5 w-5' />
               </a>
-              <a href='#' className='text-gray-400 hover:text-white transition'>
+              <a href='#' className='text-gray-400 hover:text-black transition'>
                 <Twitter className='h-5 w-5' />
               </a>
-              <a href='https://www.instagram.com/ecume_culture/#' className='text-gray-400 hover:text-white transition'>
+              <a href='https://www.instagram.com/ecume_culture/#' className='text-gray-400 hover:text-black transition'>
                 <Instagram className='h-5 w-5' />
               </a>
             </div>
@@ -90,11 +90,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className='pt-8 border-t  text-center  text-sm flex justify-between '>
-          <div className='flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0'>
+        <div className='pt-8 border-t  text-center  text-sm  '>
+          <div className='flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 flex justify-between'>
             <div className='flex items-center'>
               <span className='text-xl font-bold mr-2'>
-                <span className='text-white'>ecume</span>
+                <span className='text-black'>ecume</span>
                 <span className='text-yellow-400'>.</span>
               </span>
               <span className='text-xs tracking-widest'>
@@ -105,7 +105,7 @@ const Footer = () => {
               ©2025 ECUME Digital Cultural Lab. 
             </span >
             <span className='md:ml-4'>
-            <a href='https://github.com/farah-rezgui' className=' hover:text-white transition'>
+            <a href='https://github.com/farah-rezgui' className=' hover:text-black transition'>
               Site created by  Rezgui Farah
               </a>
             </span>

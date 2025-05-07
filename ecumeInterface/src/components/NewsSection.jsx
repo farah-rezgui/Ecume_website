@@ -27,7 +27,7 @@ const NewsSection = () => {
                 NOUVEAUTÉ
               </div>
               <h3 className='text-2xl font-bold mb-4'>
-                Lancement de l'application mobile ECUME
+                Lancement d'experience immersive
               </h3>
               <p className='text-gray-600 mb-4'>
                 Nous sommes ravis d'annoncer le lancement de notre application
@@ -35,7 +35,7 @@ const NewsSection = () => {
                 tunisien où que vous soyez. Téléchargez-la dès maintenant !
               </p>
               <a
-                href='#'
+                href='/actualite'
                 className='text-yellow-500 font-medium hover:text-yellow-600 transition'>
                 Lire la suite →
               </a>
@@ -43,7 +43,7 @@ const NewsSection = () => {
             <div className='md:w-1/3'>
               <div className='h-full'>
                 <img
-                  src='/placeholder.svg?height=300&width=300'
+                  src='/public/images/ECUME-DIGITAL-CULTURAL-LAB.png'
                   alt='News'
                   className='w-full h-full object-cover'
                 />

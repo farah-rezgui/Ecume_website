@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const highlights = [
+const products = [
   {
     id: 1,
     title: "Jeu De Mémore",
@@ -21,7 +21,7 @@ const highlights = [
   },
 ];
 
-const Highlights = () => {
+const Product = () => {
   return (
     <section className='section-padding'>
       <div className='container-custom'>
@@ -35,7 +35,7 @@ const Highlights = () => {
         </motion.h2>
 
         <div className='grid md:grid-cols-2 gap-8 mt-10'>
-          {highlights.map((item, index) => (
+          {products.map((item, index) => (
             <motion.div
               key={item.id}
               className='bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300'
@@ -53,7 +53,7 @@ const Highlights = () => {
               <div className='p-6'>
                 <h3 className='text-xl font-bold mb-3'>{item.title}</h3>
                 <p className='text-gray-600'>{item.description}</p>
-                <a href={item.link}>
+                <a href={`/produits/${item.id}`}>
                 <button className='mt-4 text-yellow-500 font-medium flex items-center hover:text-yellow-600 transition'>
                   En savoir plus
                   <svg
@@ -78,4 +78,4 @@ const Highlights = () => {
   );
 };
 
-export default Highlights;
+export default Product;

@@ -23,7 +23,7 @@ export default function Reservation() {
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex items-center relative justify-center p-4">
+      className="min-h-screen bg-cover bg-center flex items-center  justify-center p-4">
       <div className='absolute inset-0 bg-opacity-50 -z-10'>
         <img
           src='/public/images/bgFormulaire.jpg'

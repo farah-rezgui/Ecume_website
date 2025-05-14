@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Jeu De Mémore",
+      "description": "فردة و لقات اختها",
+      "image": "/public/images/jeuDeMemoir.jpg",
+      "body": "Plongez-vous dans la culture tunisienne avec ce jeu de mémoire captivant ! Retrouvez les paires d'habits traditionnels ou accessoires tunisiens identiques tout en vous amusant. Testez votre mémoire tout en explorant la beauté et la diversité des costumes régionaux tunisiens."
+    },
+    {
+      "id": 2,
+      "title": "Le Boite Mystéres",
+      "description": "صندوق عجب",
+      "image": "/public/images/leBoitAMysteres.jpg",
+      "body": "Plongez-vous dans la culture tunisienne avec ce jeu de mémoire captivant ! Retrouvez les paires d'habits traditionnels ou accessoires tunisiens identiques tout en vous amusant. Testez votre mémoire tout en explorant la beauté et la diversité des costumes régionaux tunisiens."
+    }
+  ]
+}

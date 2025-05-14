@@ -1,27 +1,8 @@
-"use client";
-
 import { motion } from "framer-motion";
-
-const products = [
-  {
-    id: 1,
-    title: "Jeu De Mémore",
-    description:
-      "فردة و لقات اختها",
-    image: "/public/images/jeuDeMemoir.jpg",
-    link : "/jeuDeMemoir"
-  },
-  {
-    id: 2,
-    title: "Le Boite Mystéres",
-    description:
-      "صندوق عجب",
-    image: "/public/images/leBoitAMysteres.jpg",
-    link:"/leBoitAMysteres"
-  },
-];
+import prods from "../assets/products.json";
 
 const Product = () => {
+  const products = prods.products;
   return (
     <section className='section-padding'>
       <div className='container-custom'>
@@ -54,20 +35,20 @@ const Product = () => {
                 <h3 className='text-xl font-bold mb-3'>{item.title}</h3>
                 <p className='text-gray-600'>{item.description}</p>
                 <a href={`/produits/${item.id}`}>
-                <button className='mt-4 text-yellow-500 font-medium flex items-center hover:text-yellow-600 transition'>
-                  En savoir plus
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-5 w-5 ml-1'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'>
-                    <path
-                      fillRule='evenodd'
-                      d='M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z'
-                      clipRule='evenodd'
-                    />
-                  </svg>
-                </button>
+                  <button className='mt-4 text-yellow-500 font-medium flex items-center hover:text-yellow-600 transition'>
+                    En savoir plus
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      className='h-5 w-5 ml-1'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'>
+                      <path
+                        fillRule='evenodd'
+                        d='M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z'
+                        clipRule='evenodd'
+                      />
+                    </svg>
+                  </button>
                 </a>
               </div>
             </motion.div>

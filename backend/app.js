@@ -16,7 +16,9 @@ var osRouter = require("./routes/osRouter");
 var produitRouter = require("./routes/produitRouter");
 var userRouter = require("./routes/userRouter");
 var commandeRouter = require("./routes/commandeRouter");
-
+var cartRouter = require("./routes/cartRouter");
+var newsletterRouter = require("./routes/newsletterRouter");
+var reservationRouter = require("./routes/reservationRouter");
 var app = express();
 
 app.use(logger("dev"));
@@ -33,6 +35,9 @@ app.use("/user", userRouter);
 app.use("/cmd", commandeRouter);
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.use('/auth', authRouter);
+app.use('/cart', cartRouter);
+app.use('/newsLetter', newsletterRouter);
+app.use('/reservation', reservationRouter);
 
 const { authMiddleware } = require('./middlewares/authMiddleware');
 

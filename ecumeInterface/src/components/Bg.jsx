@@ -55,7 +55,11 @@ const Bg = () => {
 
   return (
     <div className='relative h-screen w-full overflow-hidden bg-background'>
-      <img  src="/src/assets/blob.svg" className='absolute -z-10 top-[21%] w-72 left-[7%] aspect-square' alt="blob" />
+      <img
+        src={blob}
+        className='absolute z-10 top-[21%] w-72 left-[7%] aspect-square'
+        alt='blob'
+      />
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -68,7 +72,7 @@ const Bg = () => {
             className='h-full w-full object-cover'
           />
           {index === currentSlide && (
-            <div className='absolute top-1/2 left-[10%] -translate-y-1/2 z-10'>
+            <div className='absolute top-1/2 left-[10%] -translate-y-1/2 z-50'>
               <h1 className='text-7xl mb-4  p-8 max-w-4xl text-black font-medium [text-shadow:white_2px_5px]'>
                 {slide.title}
               </h1>

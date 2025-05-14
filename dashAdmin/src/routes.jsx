@@ -1,65 +1,106 @@
-import { useEffect, useState } from "react";
+import {
+  HomeIcon,
+  UserCircleIcon,
+  TableCellsIcon,
+  InformationCircleIcon,
+  ServerStackIcon,
+  RectangleStackIcon,
+  ShoppingCartIcon,       // Pour Produit
+  UsersIcon,              // Pour Client
+  ClipboardDocumentIcon,
+  PlusCircleIcon,
+  EnvelopeIcon,
+} from "@heroicons/react/24/solid";
+import { Home } from "@/pages/dashboard";
+import { SignIn, SignUp } from "@/pages/auth";
+import Produit from "./pages/dashboard/produit";
+import User from "./pages/dashboard/user";
+import Commande from "./pages/dashboard/commande";
+import AjouterProduit from "./pages/dashboard/AjouterProduit";
+import { Route } from "react-router-dom";
+import NewsLetter from "./pages/dashboard/newsLetter";
+import Reservation from "./pages/dashboard/reservation";
 
-export default function ReservationList() {
-  const [reservations, setReservations] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  const fetchReservations = async () => {
-    const res = await fetch("http://localhost:5000/reservation/all");
-    const data = await res.json();
-    setReservations(data);
-    setLoading(false);
-  };
 
-  const deleteReservation = async (id) => {
-    if (window.confirm("Voulez-vous supprimer cette réservation ?")) {
-      await fetch(`http://localhost:5000/reservation/delete/${id}`, {
-        method: "DELETE",
-      });
-      fetchReservations();
-    }
-  };
+// Protected route component
+const ProtectedRoute = ({ children }) => {
+  const { isAdmin } = useAdminAuth();
 
-  useEffect(() => {
-    fetchReservations();
-  }, []);
+  if (!isAdmin) {
+    return <Navigate to='/admin/login' replace />;
+  }
 
-  if (loading) return <p>Chargement...</p>;
+  return children;
+};
 
-  return (
-    <div className="p-8">
-      <h2 className="text-2xl font-bold mb-4">Liste des Réservations</h2>
-      <table className="w-full border">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="p-2 border">Hébergement</th>
-            <th className="p-2 border">Date</th>
-            <th className="p-2 border">Personnes</th>
-            <th className="p-2 border">Tranche d’âge</th>
-            <th className="p-2 border">Niveau</th>
-            <th className="p-2 border">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reservations.map((r) => (
-            <tr key={r._id} className="text-center border-t">
-              <td className="p-2 border">{r.hebergement}</td>
-              <td className="p-2 border">{new Date(r.date).toLocaleDateString()}</td>
-              <td className="p-2 border">{r.nombrePersonnes}</td>
-              <td className="p-2 border">{r.trancheAge}</td>
-              <td className="p-2 border">{r.niveauExperience}</td>
-              <td className="p-2 border">
-                <button
-                  onClick={() => deleteReservation(r._id)}
-                  className="bg-red-500 text-white px-3 py-1 rounded"
-                >
-                  Supprimer
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+
+const icon = {
+  className: "w-5 h-5 text-inherit",
+};
+
+export const routes = [
+  {
+    layout: "dashboard",
+    pages: [
+      {
+        icon: <HomeIcon {...icon} />,
+        name: "dashboard",
+        path: "/home",
+        element: <Home />,
+      },
+      {
+        icon: <ShoppingCartIcon {...icon} />,
+        name: "produit",
+        path: "/produit",
+        element: <Produit />,
+      },
+      {
+        icon: <UserCircleIcon {...icon} />,
+        name: "user",
+        path: "/user",
+        element: <User />,
+      },
+      {
+        icon: <ClipboardDocumentIcon {...icon} />,
+        name: "commande",
+        path: "/commande",
+        element: <Commande />,
+      },
+        {
+        icon: <EnvelopeIcon {...icon} />, 
+        name: "NewsLetterr",
+        path: "/newsLetter",
+        element: <NewsLetter />,
+      },
+              {
+        icon: <EnvelopeIcon {...icon} />, 
+        name: "Reservation",
+        path: "/reservation",
+        element: <Reservation />,
+      },
+      
+    ],
+  },
+
+  {
+    title: "auth pages",
+    layout: "auth",
+    pages: [
+      {
+        icon: <ServerStackIcon {...icon} />,
+        name: "sign in",
+        path: "/sign-in",
+        element: <SignIn />,
+      },
+      {
+        icon: <RectangleStackIcon {...icon} />,
+        name: "sign up",
+        path: "/sign-up",
+        element: <SignUp />,
+      },
+    ],
+  },
+];
+
+export default routes;

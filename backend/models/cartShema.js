@@ -4,8 +4,16 @@ const cartShema = new mongoose.Schema(
   {
     produit: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "produit", // Reference to the produit collection
+        _id: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "produit",
+          required: true,
+        },
+        quantity: {
+          type: Number,
+          default: 1,
+          required: true,
+        },
       },
     ],
   },

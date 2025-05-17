@@ -29,73 +29,72 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${"fixed "} w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
-      }`}>
-      <div className='container-custom flex  items-center justify-between'>
+      className={`${"fixed "} w-full z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+        }`}>
+      <div className='flex items-center justify-between container-custom'>
         {/* Logo */}
         <Link to='/' className='flex items-center'>
           <div className='text-3xl font-bold'>
             <img
               src='/public/images/digital-long.png'
               alt='logo'
-              className='h-24 w-48 object-scale-down'
+              className='object-scale-down w-48 h-24'
             />
           </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className='hidden lg:flex items-center justify-center flex-1'>
+        <div className='items-center justify-center flex-1 hidden lg:flex'>
           <ul className='flex space-x-8'>
             <li>
               <Link
                 to='/'
-                className='font-medium hover:text-yellow-500 transition'>
+                className='font-medium transition hover:text-yellow-500'>
                 Accueil
               </Link>
             </li>
             <li>
               <Link
                 to='/actualite'
-                className='font-medium hover:text-yellow-500 transition'>
+                className='font-medium transition hover:text-yellow-500'>
                 Actualité
               </Link>
             </li>
             <li>
               <Link
                 to='/produits'
-                className='font-medium hover:text-yellow-500 transition'>
+                className='font-medium transition hover:text-yellow-500'>
                 Nos jeux
               </Link>
             </li>
             <li>
               <Link
                 to='/reservation'
-                className='font-medium hover:text-yellow-500 transition'>
+                className='font-medium transition hover:text-yellow-500'>
                 Reservation
               </Link>
             </li>
             <li>
               <Link
                 to='/apropos'
-                className='font-medium hover:text-yellow-500 transition'>
+                className='font-medium transition hover:text-yellow-500'>
                 A propos
               </Link>
             </li>
             <li>
               <Link
                 to='/contact'
-                className='font-medium hover:text-yellow-500 transition'>
+                className='font-medium transition hover:text-yellow-500'>
                 Contact
               </Link>
             </li>
           </ul>
         </div>
         {/* Cart and Member buttons */}
-        <div className='hidden md:flex items-center space-x-4'>
+        <div className='items-center hidden space-x-4 md:flex'>
           <button
             onClick={() => setIsCartOpen(true)}
-            className='relative p-2 text-black hover:text-yellow transition-colors'>
+            className='relative p-2 text-black transition-colors hover:text-yellow'>
             <svg
               className='w-6 h-6'
               fill='none'
@@ -109,14 +108,14 @@ const Navbar = () => {
               />
             </svg>
             {cart.items.length > 0 && (
-              <span className='absolute -top-1 -right-1 bg-yellow text-black w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold'>
+              <span className='absolute flex items-center justify-center w-5 h-5 text-xs font-bold text-black rounded-full -top-1 -right-1 bg-yellow'>
                 {cart.items.length}
               </span>
             )}
           </button>
           <button
             onClick={() => navigate("/contact")}
-            className='bg-yellow-500 px-6 py-3 text-black font-semibold hover:bg-black hover:text-white duration-300'>
+            className='px-6 py-3 font-semibold text-black duration-300 bg-yellow-500 hover:bg-black hover:text-white'>
             Devenir membre
           </button>
         </div>
@@ -129,13 +128,13 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className='lg:hidden bg-white absolute top-full left-0 w-full shadow-md'>
-          <div className='container-custom py-4'>
-            <ul className='space-y-4 mb-6'>
+        <div className='absolute left-0 w-full bg-white shadow-md lg:hidden top-full'>
+          <div className='py-4 container-custom'>
+            <ul className='mb-6 space-y-4'>
               <li>
                 <Link
                   to='/'
-                  className='block font-medium hover:text-yellow-500 transition'
+                  className='block font-medium transition hover:text-yellow-500'
                   onClick={() => setIsOpen(false)}>
                   Accueil
                 </Link>
@@ -143,7 +142,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to='/parcours'
-                  className='block font-medium hover:text-yellow-500 transition'
+                  className='block font-medium transition hover:text-yellow-500'
                   onClick={() => setIsOpen(false)}>
                   Parcours
                 </Link>
@@ -151,7 +150,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to='/news'
-                  className='block font-medium hover:text-yellow-500 transition'
+                  className='block font-medium transition hover:text-yellow-500'
                   onClick={() => setIsOpen(false)}>
                   News
                 </Link>
@@ -159,20 +158,20 @@ const Navbar = () => {
               <li>
                 <Link
                   to='/contact'
-                  className='block font-medium hover:text-yellow-500 transition'
+                  className='block font-medium transition hover:text-yellow-500'
                   onClick={() => setIsOpen(false)}>
                   Contact
                 </Link>
               </li>
             </ul>
-            <div className='flex items-center space-x-6 border-t pt-4'>
+            <div className='flex items-center pt-4 space-x-6 border-t'>
               <button
                 onClick={toggleLanguage}
                 className='flex items-center space-x-1'>
                 <Globe size={18} />
                 <span className='text-sm font-medium'>{language}</span>
               </button>
-              <button className='hover:text-yellow-500 transition'>
+              <button className='transition hover:text-yellow-500'>
                 <Search size={20} />
               </button>
             </div>

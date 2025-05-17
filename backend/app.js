@@ -19,6 +19,7 @@ var commandeRouter = require("./routes/commandeRouter");
 var cartRouter = require("./routes/cartRouter");
 var newsletterRouter = require("./routes/newsletterRouter");
 var reservationRouter = require("./routes/reservationRouter");
+var actualiteRouter = require("./routes/actualiteRouter");
 var app = express();
 
 app.use(logger("dev"));
@@ -38,6 +39,7 @@ app.use('/auth', authRouter);
 app.use('/cart', cartRouter);
 app.use('/newsLetter', newsletterRouter);
 app.use('/reservation', reservationRouter);
+app.use('/actualite', actualiteRouter);
 
 const { authMiddleware } = require('./middlewares/authMiddleware');
 

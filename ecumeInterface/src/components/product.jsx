@@ -1,8 +1,23 @@
 import { motion } from "framer-motion";
-import prods from "../assets/products.json";
+import React, { useEffect, useState } from "react";
 
 const Product = () => {
-  const products = prods.products;
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Fetch products from the API
+    fetch("http://localhost:5000/prod/getAllProduit")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data.produitList);
+      })
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
+
+  if (products.length === 0) {
+    return <p>Loading products...</p>;
+  }
+
   return (
     <section className='section-padding'>
       <div className='container-custom'>
@@ -15,31 +30,31 @@ const Product = () => {
           À NE PAS RATER
         </motion.h2>
 
-        <div className='grid md:grid-cols-2 gap-8 mt-10'>
+        <div className='grid gap-8 mt-10 md:grid-cols-2'>
           {products.map((item, index) => (
             <motion.div
               key={item.id}
-              className='bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300'
+              className='overflow-hidden transition duration-300 bg-white rounded-lg shadow-md hover:shadow-lg'
               initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}>
               <div className='h-56 overflow-hidden'>
                 <img
-                  src={item.image || "/placeholder.svg"}
-                  alt={item.title}
-                  className='w-full h-full object-cover transition duration-500 hover:scale-105'
+                  src={`/public/images/${item.image}`}
+                  alt={item.titre}
+                  className='object-cover w-full h-full transition duration-500 hover:scale-105'
                 />
               </div>
               <div className='p-6'>
-                <h3 className='text-xl font-bold mb-3'>{item.title}</h3>
-                <p className='text-gray-600'>{item.description}</p>
-                <a href={`/produits/${item.id}`}>
-                  <button className='mt-4 text-yellow-500 font-medium flex items-center hover:text-yellow-600 transition'>
+                <h3 className='mb-3 text-xl font-bold'>{item.titre}</h3>
+                <p className='text-gray-600'>{item.descriptionHome}</p>
+                <a href={`/produits/${item._id}`}>
+                  <button className='flex items-center mt-4 font-medium text-yellow-500 transition hover:text-yellow-600'>
                     En savoir plus
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
-                      className='h-5 w-5 ml-1'
+                      className='w-5 h-5 ml-1'
                       viewBox='0 0 20 20'
                       fill='currentColor'>
                       <path

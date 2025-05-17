@@ -26,7 +26,7 @@ export default function Reservation() {
       className="min-h-screen bg-cover bg-center flex items-center  justify-center p-4">
       <div className='absolute inset-0 bg-opacity-50 -z-10'>
         <img
-          src='/public/images/bgFormulaire.jpg'
+          src='/public/images/berbere a propos.jpg'
           alt='Archaeological site'
           className='w-full h-full opacity-75  object-cover '
         />

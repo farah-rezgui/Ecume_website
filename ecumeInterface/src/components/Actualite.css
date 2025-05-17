@@ -1,0 +1,151 @@
+.blog-post {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+.blog-post .post-image {
+  width: 100%;
+  display: block;
+  margin-bottom: 0;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.blog-post .post-content {
+  width: 100%;
+  display: block;
+  padding-right: 30%;
+}
+.blog-post .post-content .date {
+  height: 22px;
+  line-height: 22px;
+  display: inline-block;
+  background: #f7c954;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.blog-post .post-content .post-title {
+  width: 100%;
+  display: block;
+  font-size: 56px;
+  font-family: "League Spartan", serif;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+.blog-post .post-content .post-title a {
+  color: #080808;
+}
+.blog-post .post-content .post-author img {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+a {
+  text-decoration: none;
+  color: #080808;
+}
+
+.page-loaded .page-header {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.page-header {
+  width: 100%;
+  height: 540px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-size: cover !important;
+}
+.page-header .inner {
+  width: 100%;
+  display: block;
+  padding: 0 60px;
+  position: relative;
+  margin-top: 60px;
+}
+.page-header .inner {
+  width: 100%;
+  display: block;
+  padding: 0 60px;
+  position: relative;
+  margin-top: 60px;
+}
+
+.page-header .inner {
+  width: 100%;
+  display: block;
+  padding: 0 60px;
+  position: relative;
+  margin-top: 60px;
+}
+.page-header .inner h1 {
+  font-size: 92px;
+  font-weight: 400;
+  font-family: "League Spartan", serif;
+  line-height: 1;
+  margin-bottom: 30px;
+  position: relative;
+}
+.page-header .inner p {
+  font-size: 19px;
+  margin: 0;
+  opacity: 0.7;
+  padding-left: 30px;
+  border-left: 3px solid #080808;
+  margin-left: 10px;
+  position: relative;
+  padding-right: 50%;
+}
+.page-header .inner .svg-morph {
+  position: absolute;
+  top: calc(50% - 200px);
+  left: 0;
+  z-index: 0;
+  transform: translateX(-15%);
+}
+.page-header .inner .svg-morph path {
+  fill: #f7c954;
+  animation-name: svg-morph;
+  -webkit-animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  -moz-animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  -o-animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  -ms-animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  animation-duration: 8s;
+  animation-fill-mode: both;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.blog-post .post-content .post-tags {
+  width: 100%;
+  display: block;
+  margin: 30px 0;
+  padding: 0;
+}
+.blog-post .post-content .post-tags li {
+  display: inline-block;
+  margin: 3px 0;
+  margin-right: 10px;
+  padding: 0;
+  list-style: none;
+}
+.blog-post .post-content .post-tags li a {
+  background:  #080808;
+  color: #fff;
+  padding: 4px 12px;
+  font-size: 11px;
+}
